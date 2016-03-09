@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "mars_rovers"
+
+puts "please enter the dimensions of the Plateau"
+dimensions = gets.chomp
+runner = MarsRovers::Runner.new dimensions
+loop do
+  puts "please enter the initial location of the rover ex:(1 2 N)"
+  runner.init_rover(gets.chomp)
+  puts "please enter the movments of the rover ex:(LMLMLMLMM)"
+  runner.move_rover(gets.chomp)
+  puts "it should end up @ #{runner.output}"
+end
